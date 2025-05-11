@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
-const review = require("./review.js");
 
 const imageSchema = new Schema({
   filename: {
@@ -39,7 +38,7 @@ const listingSchema = new Schema({
 // For delete listing
 listingSchema.post("findOneAndDelete", async (listing) => {
   if (listing) {
-    await Rewiew.deleteMany({ _id: { $in: listing.reviews } });
+    await Review.deleteMany({ _id: { $in: listing.reviews } });
   }
 });
 
