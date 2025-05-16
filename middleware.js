@@ -30,13 +30,32 @@ module.exports.isOwner = async (req, res, next) => {
 };
 
 module.exports.validateListing = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
+  if (req.method === "POST") {
+    // Create route - image required
+    if (!req.file) {
+      return next(new ExpressError("Image is required", 400));
+    }
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+    if (!allowedTypes.includes(req.file.mimetype)) {
+      return next(new ExpressError("Invalid image format", 400));
+    }
+  } else if (req.method === "PUT") {
+    // Update route - image optional but validate if provided
+    if (req.file) {
+      const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+      if (!allowedTypes.includes(req.file.mimetype)) {
+        return next(new ExpressError("Invalid image format", 400));
+      }
+    }
   }
+
+  const { error } = listingSchema.validate(req.body);
+  if (error) {
+    const errMsg = error.details.map((el) => el.message).join(",");
+    return next(new ExpressError(errMsg, 400));
+  }
+
+  next();
 };
 
 module.exports.validateReview = (req, res, next) => {

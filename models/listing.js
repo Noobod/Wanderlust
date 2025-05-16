@@ -8,12 +8,6 @@ const imageSchema = new Schema({
   },
   url: {
     type: String,
-    default:
-      "https://unsplash.com/photos/the-lion-roars-fiercely-with-visible-teeth-BnHb566EPDo",
-    set: (v) =>
-      v === ""
-        ? "https://unsplash.com/photos/the-lion-roars-fiercely-with-visible-teeth-BnHb566EPDo"
-        : v,
   },
 });
 
