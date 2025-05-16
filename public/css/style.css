@@ -117,3 +117,11 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+
+/* Map */
+#map {
+    height: 400px;
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem auto; /* vertical spacing + center */
+  }
