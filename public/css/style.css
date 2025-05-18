@@ -179,26 +179,28 @@ body {
 }
 
 /* ===== Navbar search styling ===== */
+
 .search-btn {
-  background-color: #fe424d;
-  color: #fff;
-  border-radius: 25px;
-  padding: 0 1rem 0 1rem;
-  transition: background-color 0.3s ease;
+  background-color: #fe424d !important;
+  color: #fff !important;
+  border-radius: 25px !important;
+  padding: 0 1rem 0 1rem !important;
+  transition: background-color 0.3s ease !important;
 }
 
 .search-btn:hover {
-  background-color: #fe424d;
-  color: #fff;
+  background-color: #fe424d !important;
+  color: #fff !important;
 }
 
 .search-btn i {
-  display: inline;
-  margin-right: 0.5rem;
+  display: inline !important;
+  margin-right: 0.5rem !important;
 }
 
 .search-inp {
-  border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
-  font-size: 0.8rem;
+  border-radius: 25px !important;
+  padding: 0.5rem 3rem 0.5rem 3rem !important;
+  font-size: 0.8rem !important;
 }
+
