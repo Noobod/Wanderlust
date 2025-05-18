@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
     font-family: "Plus Jakarta Sana", sans-serif !important;
     display: flex;
@@ -9,7 +10,7 @@ body {
     flex: 1;
 }
 
-/* Navbar */
+/* ===== Navbar ===== */
 .navbar {
     height: 5rem;
     background-color: white;
@@ -17,14 +18,31 @@ body {
 
 .fa-compass {
     color: #fe424d;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.navbar-brand i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
 }
 
 .nav-link {
     color: #222222 !important;
 }
 
-/* Footer */
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between icon and text */
+}
+
+.navbar-nav .nav-link i {
+    font-size: 1.4rem;
+}
+
+/* ===== Footer ===== */
 .f-info-links a {
     text-decoration: none;
     color: #222222;
@@ -57,7 +75,7 @@ body {
     align-items: space-evenly;
 }
 
-/* Cards */
+/* ===== Cards ===== */
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
@@ -84,6 +102,7 @@ body {
 /* Card Effect */
 .card-img-overlay {
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card-img-overlay:hover {
@@ -91,19 +110,12 @@ body {
     background-color: white;
 }
 
-/* New Page */
-.add-btn {
+/* ===== Buttons ===== */
+.add-btn, .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-/* Edit Page */
-.edit-btn {
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* Show Page */
 .show-image {
     height: 30vh;
 }
@@ -112,12 +124,13 @@ body {
     display: flex;
 }
 
+/* Show page cards */
 .show-card {
     padding-left: 0;
     padding-right: 0;
 }
 
-/* Map */
+/* ===== Map ===== */
 #map {
     height: 400px;
     width: 100%;
@@ -125,7 +138,7 @@ body {
     margin: 1rem auto;
 }
 
-/* Filters */
+/* ===== Filters ===== */
 .filter {
     opacity: 0.7;
     transition: opacity 0.3s;
@@ -153,8 +166,59 @@ body {
     align-items: center;
 }
 
-/* Mobile Responsiveness */
+/* ===== Navbar search styling ===== */
+.search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+}
+
+.search-btn i {
+    margin-right: 0.5rem;
+}
+
+.search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+/* ===== Responsive Styles ===== */
+
+/* Filters container horizontal scroll on small screens */
+#filters {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    flex-wrap: nowrap; /* prevent wrapping on small devices */
+}
+
+.filter {
+    display: inline-block;
+    white-space: normal;
+    text-align: center;
+    min-width: 80px;
+    margin-right: 1rem;
+}
+
+/* Ensure listing card images stay responsive */
+.listing-card img {
+    height: 20rem;
+    max-height: 20rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* ===== Media Queries ===== */
 @media (max-width: 768px) {
+    /* Filters stacked vertically */
     #filters {
         flex-direction: column;
         align-items: center;
@@ -175,9 +239,32 @@ body {
     .show-image {
         height: 20vh;
     }
+
+    /* Navbar nav stacking & spacing */
+    .navbar-collapse .navbar-nav {
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow-x: visible;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+    }
+
+    /* Search input & button full width */
+    .search-inp,
+    .search-btn {
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 576px) {
+    /* Buttons stack vertically */
     .btns {
         flex-direction: column;
         gap: 0.5rem;
@@ -188,95 +275,34 @@ body {
         width: 100%;
         margin-top: 0.5rem;
     }
-}
 
-/* Navbar search styling */
-.search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem;
-}
-
-.search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
-}
-
-.search-btn i {
-    margin-right: 0.5rem;
-}
-
-.search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-}
-
-/* Responsive navbar adjustments */
-@media (max-width: 768px) {
-    .navbar-nav {
-        text-align: center;
+    /* Smaller icons in nav links */
+    .navbar-nav .nav-link i {
+        font-size: 1.2rem;
+        margin-right: 0.3rem;
     }
 
-    .navbar form {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-    }
-
-    .search-inp,
-    .search-btn {
-        width: 100%;
-    }
-}
-
-/* Additional Mobile Responsiveness Improvements for Filters and Cards */
-
-/* Ensure listing card images stay responsive */
-.listing-card img {
-    height: 20rem;
-    max-height: 20rem;
-    object-fit: cover;
-    width: 100%;
-}
-
-/* Filters container horizontal scroll on small screens */
-#filters {
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-    flex-wrap: nowrap; /* prevent wrapping on small devices */
-}
-
-/* Make filters inline-block for horizontal scroll */
-.filter {
-    display: inline-block;
-    white-space: normal;
-    text-align: center;
-    min-width: 80px;
-    margin-right: 1rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-    .listing-card img {
-        height: 15rem;
-    }
-
-    #filters {
-        white-space: nowrap;
-        overflow-x: auto;
-    }
-
+    /* Filters smaller width and font */
     .filter {
         min-width: 70px;
         font-size: 0.8rem;
         margin-right: 0.7rem;
     }
 
+    /* Card image smaller height */
+    .listing-card img {
+        height: 15rem;
+    }
+
+    /* Card text smaller font */
     .card-body p.card-text {
         font-size: 0.9rem;
+    }
+
+    /* Add container-fluid padding for navbar */
+    .navbar .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -285,27 +311,30 @@ body {
     font-size: 1.5rem;
     vertical-align: middle;
     color: #fe424d;
-  }
-  
-  /* Add spacing and vertical align icons inside nav links */
-  .navbar-nav .nav-link i {
+}
+
+/* Add spacing and vertical align icons inside nav links */
+.navbar-nav .nav-link i {
     margin-right: 0.5rem;
     vertical-align: middle;
-  }
-  
-  /* Adjust collapsed navbar nav links spacing on small screens */
-  @media (max-width: 767.98px) {
+}
+
+/* Adjust collapsed navbar nav links spacing on small screens */
+@media (max-width: 767.98px) {
     .navbar-collapse .navbar-nav {
-      margin-top: 1rem;
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow-x: visible;
     }
     .navbar-collapse .nav-link {
-      padding: 0.5rem 1rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
     }
-  
+
     /* Make search input and button full width inside collapse */
     .search-inp,
     .search-btn {
-      width: 100% !important;
+        width: 100% !important;
     }
-  }
-  
+}
