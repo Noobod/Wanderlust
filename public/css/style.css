@@ -196,38 +196,116 @@ body {
     color: #fff;
     border-radius: 25px;
     padding: 0 1rem;
-  }
-  
-  .search-btn:hover {
+}
+
+.search-btn:hover {
     background-color: #fe424d;
     color: #fff;
-  }
-  
-  .search-btn i {
+}
+
+.search-btn i {
     margin-right: 0.5rem;
-  }
-  
-  .search-inp {
+}
+
+.search-inp {
     border-radius: 25px;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
-  }
-  
-  /* Responsive navbar adjustments */
-  @media (max-width: 768px) {
+}
+
+/* Responsive navbar adjustments */
+@media (max-width: 768px) {
     .navbar-nav {
-      text-align: center;
+        text-align: center;
     }
-  
+
     .navbar form {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
     }
-  
+
     .search-inp,
     .search-btn {
-      width: 100%;
+        width: 100%;
+    }
+}
+
+/* Additional Mobile Responsiveness Improvements for Filters and Cards */
+
+/* Ensure listing card images stay responsive */
+.listing-card img {
+    height: 20rem;
+    max-height: 20rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Filters container horizontal scroll on small screens */
+#filters {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    flex-wrap: nowrap; /* prevent wrapping on small devices */
+}
+
+/* Make filters inline-block for horizontal scroll */
+.filter {
+    display: inline-block;
+    white-space: normal;
+    text-align: center;
+    min-width: 80px;
+    margin-right: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .listing-card img {
+        height: 15rem;
+    }
+
+    #filters {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    .filter {
+        min-width: 70px;
+        font-size: 0.8rem;
+        margin-right: 0.7rem;
+    }
+
+    .card-body p.card-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix navbar brand icon size and alignment */
+.fa-compass {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    color: #fe424d;
+  }
+  
+  /* Add spacing and vertical align icons inside nav links */
+  .navbar-nav .nav-link i {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  
+  /* Adjust collapsed navbar nav links spacing on small screens */
+  @media (max-width: 767.98px) {
+    .navbar-collapse .navbar-nav {
+      margin-top: 1rem;
+    }
+    .navbar-collapse .nav-link {
+      padding: 0.5rem 1rem;
+    }
+  
+    /* Make search input and button full width inside collapse */
+    .search-inp,
+    .search-btn {
+      width: 100% !important;
     }
   }
   
