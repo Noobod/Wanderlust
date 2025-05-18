@@ -161,7 +161,7 @@ body {
 }
 
 .filter p {
-  font-size: 2rem;
+  font-size: 0.8rem;
 }
 
 .tax-info {
@@ -183,7 +183,7 @@ body {
   background-color: #fe424d;
   color: #fff;
   border-radius: 25px;
-  padding: 0 1rem;
+  padding: 0 1rem 0 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -199,6 +199,6 @@ body {
 
 .search-inp {
   border-radius: 25px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
   font-size: 0.8rem;
 }
