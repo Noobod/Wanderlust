@@ -29,3 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Highlight clicked filter (frontend only)
+const filters = document.querySelectorAll(".filter");
+
+filters.forEach(filter => {
+  filter.addEventListener("click", () => {
+    filters.forEach(f => f.classList.remove("active-filter"));
+    filter.classList.add("active-filter");
+  });
+});
